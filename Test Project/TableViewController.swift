@@ -75,15 +75,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
         
+        if presentItem.date != nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            print(presentItem.date)
+            let convertedDate = dateFormatter.string(from: presentItem.date!)
+            cell.dateLabel.text = convertedDate
+        }
+        
         cell.nameLabel.text = presentItem.name
         cell.descriptionLabel.text = presentItem.title
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        print(presentItem.date)
-        let convertedDate = dateFormatter.string(from: presentItem.date!)
-        
-        cell.dateLabel.text = convertedDate
         cell.photoImageView.contentMode = .scaleAspectFit
         
         return cell
